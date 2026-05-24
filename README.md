@@ -103,7 +103,7 @@ All created firewall rules use the `OFL-` prefix and belong to the **OutboundFir
 2. Run `Lock-OutboundFirewall.ps1` with the appropriate SQL target before or after starting services.
 3. Connect via RDP, validate SQL connectivity, and confirm required services start.
 4. Confirm the host cannot reach production domain controllers or other blocked destinations.
-5. When recovery work is complete, run `-Remove` or `Unlock-OutboundFirewall.ps1` to restore normal firewall behavior.
+5. When recovery work is complete, run `-Remove` or `Unlock-OutboundFirewall.ps1` to restore normal firewall behaviour.
 
 ## Important notes
 
@@ -119,3 +119,39 @@ All created firewall rules use the `OFL-` prefix and belong to the **OutboundFir
 |------|-------------|
 | `Lock-OutboundFirewall.ps1` | Apply or revert outbound lockdown |
 | `Unlock-OutboundFirewall.ps1` | Thin wrapper that invokes revert on the lock script |
+
+## Authorship
+
+Written and maintained by **Shawn Ferrier**.
+
+## Copyright
+
+Copyright © 2026 Madriam Services. All rights reserved.
+
+## Licence
+
+This project is released under the MIT Licence. The full licence text is reproduced below and is also available in [LICENSE](LICENSE).
+
+```
+MIT License
+
+Copyright (c) 2026 Madriam Services
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
