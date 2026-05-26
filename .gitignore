@@ -17,7 +17,6 @@ Desktop.ini
 # PowerShell signing / build noise
 *.ps1.bak
 *.cat
-checksums.txt
 
 # Local secrets - never commit
 *.pfx

@@ -19,6 +19,25 @@
         "clear": true
       },
       "problemMatcher": []
+    },
+    {
+      "label": "Update checksums",
+      "detail": "Regenerates checksums.txt with SHA-256 hashes for every .ps1 file in the workspace root.",
+      "type": "process",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "Set-Location -LiteralPath '${workspaceFolder}'; Get-ChildItem -Path . -Filter *.ps1 -File | Sort-Object Name | Get-FileHash -Algorithm SHA256 | ForEach-Object { '{0}  {1}' -f $_.Hash.ToLower(), (Split-Path $_.Path -Leaf) } | Set-Content -LiteralPath '${workspaceFolder}\\checksums.txt' -Encoding ASCII; Get-Content -LiteralPath '${workspaceFolder}\\checksums.txt'"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
     }
   ],
   "inputs": [
