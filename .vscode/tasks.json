@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Sign PowerShell script",
+      "detail": "Signs a selected .ps1 file with the first available code-signing certificate in CurrentUser\\My using SHA-256 and a timestamp server.",
+      "type": "process",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "$cert = Get-ChildItem Cert:\\CurrentUser\\My -CodeSigningCert | Select-Object -First 1; if (-not $cert) { throw 'No code-signing certificate found in CurrentUser\\My.' }; Set-AuthenticodeSignature -FilePath '${workspaceFolder}\\${input:scriptToSign}' -Certificate $cert -TimestampServer 'http://timestamp.digicert.com' -HashAlgorithm SHA256 -IncludeChain NotRoot"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "scriptToSign",
+      "type": "pickString",
+      "description": "Select the PowerShell script to sign",
+      "options": [
+        "Lock-OutboundFirewall.ps1",
+        "Unlock-OutboundFirewall.ps1"
+      ]
+    }
+  ]
+}

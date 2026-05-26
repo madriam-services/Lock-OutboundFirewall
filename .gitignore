@@ -1,0 +1,28 @@
+# OS / editor noise
+Thumbs.db
+Desktop.ini
+*.DS_Store
+*.swp
+*.bak
+*.tmp
+
+# VS Code / Cursor - keep shared workflow files; ignore the rest
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/*.code-snippets
+
+# PowerShell signing / build noise
+*.ps1.bak
+*.cat
+checksums.txt
+
+# Local secrets - never commit
+*.pfx
+*.p12
+*.snk
+*.key
+.env
+.env.*
